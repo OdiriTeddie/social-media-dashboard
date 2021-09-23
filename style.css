@@ -1,0 +1,359 @@
+:root {
+    --primary-color: hsl(163, 72%, 41%);
+    --primary-variant: hsl(356, 69%, 56%);
+    --on-background: hsl(228, 12%, 44%);
+    --on-background-alt: hsl(230, 17%, 14%);
+    --background-card: hsl(227, 47%, 96%);
+    --background-top: hsl(225, 100%, 98%);
+    --background: hsl(0, 0%, 100%);
+    --box-shadow: 0 5px 20px 1px rgba(0, 0, 0, 0.5);
+
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+    --youtube: hsl(348, 97%, 39%);
+
+    --fs-300: 0.875rem;
+    --fs-400: 1rem;
+    --fs-500: 1.25rem;
+    --fs-600: 1.5rem;
+    --fs-700: 1.75rem;
+
+    --toggle: hsl(230, 22%, 74%);
+}
+
+
+[data-theme="dark"] {
+    --primary-color: hsl(163, 72%, 41%);
+    --primary-variant: hsl(356, 69%, 56%);
+    --on-background: hsl(228, 34%, 66%);
+    --on-background-alt:  hsl(0, 0%, 100%);
+    --background-card:  hsl(228, 28%, 20%);
+    --background-top: hsl(232, 19%, 15%);
+    --background: hsl(230, 17%, 14%);
+}
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+}
+
+
+body {
+    font-size: var(--fs-300);
+    color: var(--on-background);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+/* Utility styles */
+
+.container {
+    max-width: 70rem;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+}
+
+.flow-spacer > * + *{
+    margin-top: 1em;
+}
+
+.flow-spacer--md > * + *{
+    margin-top: 1.5em;
+}
+
+.flow-spacer--larger > * + *{
+    margin-top: 2em;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.social__title {
+    border-bottom: 1.5px solid var(--on-background);
+    padding-bottom: 1.3rem;
+}
+
+.header h1 {
+    color: var(--on-background-alt);
+}
+
+.header p {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Theme Switcher */
+
+.theme-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switcher .toggle-text {
+    font-size: var(--fs-500);
+    font-weight: 700;
+}
+
+.theme-switch {
+    /* outline: 1px solid red; */
+    /* display: inline-block; */
+    height: 34px;
+    width: 70px;
+    position: relative;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background: var(--toggle);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.slider::before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    background: #fff;
+    transition: 0.4s;
+}
+
+.input:checked + .slider {
+    background: red;
+}
+
+.input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round::before {
+    border-radius: 50%;
+}
+
+/* Social platform */
+
+.social__platform {
+    gap: 1em;
+}
+
+.social__box {
+    text-align: center;
+    background-color: var(--background-card);
+    padding: 2em 0;
+    border-radius: 5px;
+    border-top: 5px solid var(--border-clr, #fff);
+}
+
+.social__box--facebook {
+    --border-clr: var(--facebook);
+}
+
+.fa-facebook-square {
+    font-size: var(--fs-500);
+    color: var(--facebook);
+}
+
+.social__box--twitter {
+    --border-clr: var(--twitter);
+}
+
+.fa-twitter {
+    font-size: var(--fs-500);
+    color: var(--twitter);
+}
+
+.social__box--instagram {
+    border-top-width: 5px;
+    border-top-style: solid;
+    border-image: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+}
+
+.social__handle .fa-instagram {
+    color: #fff;
+    font-size: var(--fs-500);
+    background: linear-gradient(to bottom, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+}
+
+.social__box--youtube {
+    --border-clr: var(--youtube);
+}
+
+.fa-youtube {
+    font-size: 0.75rem;
+    color: #fff;
+
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--youtube);
+}
+
+.social__handle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.social__handle small {
+    font-weight: 700;
+}
+
+.social__count {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--on-background-alt);
+}
+
+.social__followers {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.social__count__today {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+    font-weight: 700;
+    font-size: 0.7rem;
+}
+
+.percentage--up {
+    color: var(--primary-color);
+}
+
+
+.percentage--down {
+    color: var(--primary-variant);
+}
+
+
+/* Social Overview */
+
+.social__overview {
+    gap: 1em;
+   
+}
+
+.social__overview__box {
+    background: var(--background-card);
+    padding: 1.4rem;
+    border-radius: 5px;
+
+}
+
+.page__views,
+.action__count {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page__views {
+    font-weight: 700;
+}
+
+.action__count--fig {
+    color: var(--on-background-alt);
+    font-size: var(--fs-700);
+    font-weight: 700;
+}
+
+.action__count--perc {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2px;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+
+/* Media Queries */
+@media(min-width: 50em) {
+
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;       
+    }
+
+    .social__title {
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+
+    .theme-switcher {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1em;
+        margin-top: 0;
+    }
+
+    .social__platform {
+        flex-direction: row;
+    }
+
+    .social__box {
+        width: 100%;
+    }
+
+    .social__overview {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .social__overview__box {
+        width: 24%;
+        flex-grow: 1;
+    }
+}

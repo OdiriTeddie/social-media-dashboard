@@ -63,11 +63,26 @@ body {
     line-height: 1.5;
     height: 100vh;
     background-color: var(--background);
+    /* background-image: linear-gradient(180deg, var(--background-card), var(--background)); */
 
     /* display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; */
+    position: relative;
+}
+
+body::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: var(--background-top);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 1;
 }
 
 /* Utility styles */
@@ -78,6 +93,8 @@ body {
     margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 2.5rem;
+    position: relative;
+    z-index: 100000;
 }
 
 .flow-spacer > * + *{
@@ -197,6 +214,10 @@ input:checked + .slider::before {
     padding: 2em 0;
     border-radius: 5px;
     border-top: 5px solid var(--border-clr, transparent);
+    /* box-shadow: 
+     1px 2px 2px hsl(227, 47%, 96% / 0.333),
+     2px 4px 4px hsl(227, 47%, 96% / 0.333),
+     3px 6px 6px hsl(227, 47%, 96% / 0.33); */
 }
 
 .social__box--facebook {
@@ -351,6 +372,12 @@ input:checked + .slider::before {
 
 /* Media Queries */
 @media(min-width: 50em) {
+
+    body::before {
+        height: 30%;
+        
+    }
+    
 
     .header {
         flex-direction: row;
